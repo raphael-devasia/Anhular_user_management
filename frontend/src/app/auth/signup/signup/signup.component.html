@@ -1,0 +1,97 @@
+<body class="bg-white rounded-lg py-5">
+    <div class="container flex flex-col mx-auto bg-white rounded-lg pt-12 my-5">
+        <div class="flex justify-center w-full h-full my-auto xl:gap-14 lg:justify-normal md:gap-5 draggable">
+            <div class="flex items-center justify-center w-full lg:p-12">
+                <div class="flex items-center xl:p-10">
+                    <form class="flex flex-col w-full h-full pb-6 text-center bg-white rounded-3xl"
+                        [formGroup]="signupForm">
+                        @if (operationValue=='adduser') {
+                            <div>
+                                <h3 class="mb-3 text-4xl font-extrabold text-dark-grey-900">Add User</h3>
+                                <p class="mb-4 text-grey-700">Enter user details to add the User</p>
+                            </div>
+                        }
+                        @else {
+                            <div>
+                                <h3 class="mb-3 text-4xl font-extrabold text-dark-grey-900">Register</h3>
+                                <p class="mb-4 text-grey-700">Enter your details to create an account</p>
+                            </div>
+
+                        }
+                       
+                        
+                        <div class="flex items-center mb-3">
+                            <hr class="h-0 border-b border-solid border-grey-500 grow">
+                            <hr class="h-0 border-b border-solid border-grey-500 grow">
+                        </div>
+
+                        <!-- First Name -->
+                        <div class="mb-4">
+                            <label for="firstName" class="mb-2 text-sm text-start text-grey-900">First Name*</label>
+                            <input id="firstName" type="text" placeholder="First Name"
+                                class="flex items-center w-full px-5 py-4 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                                formControlName="firstName" />
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="mb-4">
+                            <label for="lastName" class="mb-2 text-sm text-start text-grey-900">Last Name*</label>
+                            <input id="lastName" type="text" placeholder="Last Name"
+                                class="flex items-center w-full px-5 py-4 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                                formControlName="lastName" />
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="mb-4">
+                            <label for="phone" class="mb-2 text-sm text-start text-grey-900">Phone Number*</label>
+                            <input id="phone" type="tel" placeholder="Phone Number"
+                                class="flex items-center w-full px-5 py-4 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                                formControlName="phone" />
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-4">
+                            <label for="email" class="mb-2 text-sm text-start text-grey-900">Email*</label>
+                            <input id="email" type="email" placeholder="mail@example.com"
+                                class="flex items-center w-full px-5 py-4 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                                formControlName="email" />
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-4">
+                            <label for="password" class="mb-2 text-sm text-start text-grey-900">Password*</label>
+                            <input id="password" type="password" placeholder="Enter a password"
+                                class="flex items-center w-full px-5 py-4 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                                formControlName="password" />
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="mb-2 text-sm text-start text-grey-900">Confirm
+                                Password*</label>
+                            <input id="confirmPassword" type="password" placeholder="Confirm your password"
+                                class="flex items-center w-full px-5 py-4 text-sm font-medium outline-none focus:bg-grey-400 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded-2xl"
+                                formControlName="confirmPassword" />
+                        </div>
+
+                        <!-- Single Error Message Display -->
+                        <div *ngIf="getFirstErrorMessage()" class="text-sm mt-1 p-3 bg-red-100 border-red-400 rounded-2xl"
+                            style="color: red !important;">
+                            {{ getFirstErrorMessage() }}
+                        </div>
+                        <!-- Register Button -->
+                        <button [disabled]="signupForm.invalid"
+                         
+                            class="w-full px-6 py-5 mb-5 text-sm font-bold leading-none text-white transition duration-300 md:w-96 rounded-2xl hover:bg-purple-blue-600 focus:ring-4 focus:ring-purple-blue-100 bg-purple-blue-500"
+                            (click)="registerFormSubmit()">
+                            @if (operationValue=='adduser') {Add User}
+                            @else {Register}
+                        </button>
+                        <p *ngIf="operationValue!='adduser'" class="text-sm leading-relaxed text-grey-900">Already have an account? <button
+                                (click)="goToSignIn()" class="font-bold text-grey-700">Sign In</button></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

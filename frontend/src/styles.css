@@ -1,0 +1,33 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ngx-toastr {
+  width: 500px !important; /* Adjust the width as needed */
+  background-color: rgb(237, 180, 100) !important;
+  text-align: center;
+  margin-top: 30px !important;
+  color: brown !important;
+  font-size: 20px;
+}
+
+
+
+.ngx-toastr.animate__heartBeat{
+  animation-duration: 4s;
+}
+
+/* Example custom animation for exit */
+.ngx-toastr.animate__heartBeat {
+  animation-duration: 4s;
+}
+.custom-dialog .mat-dialog-container {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
